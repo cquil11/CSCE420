@@ -1,0 +1,23 @@
+summary of nodes searched WITHOUT alpha-beta pruning for game1:
+
+number of nodes searched: 549946
+number of nodes searched: 59705
+number of nodes searched: 7332
+number of nodes searched: 935
+number of nodes searched: 198
+number of nodes searched: 47
+number of nodes searched: 14
+number of nodes searched: 5
+number of nodes searched: 2
+
+summary of nodes searched WITH alpha-beta pruning for game1:
+
+number of nodes searched: 20866
+number of nodes searched: 2788
+number of nodes searched: 871
+number of nodes searched: 75
+number of nodes searched: 64
+number of nodes searched: 17
+number of nodes searched: 10
+number of nodes searched: 5
+number of nodes searched: 2

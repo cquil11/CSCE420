@@ -1,0 +1,86 @@
+Welcome to Tic-Tac-Toe
+. . . 
+. . . 
+. . . 
+
+> . X . 
+. . . 
+. . . 
+
+> move (A, 1) mm_score: 0
+move (C, 1) mm_score: 0
+move (A, 2) mm_score: -0.3999999999999999
+move (B, 2) mm_score: 0
+move (C, 2) mm_score: -0.3999999999999999
+move (A, 3) mm_score: -0.3999999999999999
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: -0.3999999999999999
+number of nodes searched: 63905
+O X . 
+. . . 
+. . . 
+
+> move (C, 1) mm_score: -0.3999999999999999
+move (A, 2) mm_score: 0
+move (B, 2) mm_score: 0
+move (C, 2) mm_score: -0.3999999999999999
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: -0.3999999999999999
+move (C, 3) mm_score: 0
+number of nodes searched: 8752
+O X . 
+X . . 
+. . . 
+
+> move (C, 1) mm_score: -0.6
+move (B, 2) mm_score: 0
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: -0.6
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: -0.6
+number of nodes searched: 1465
+O X . 
+X O . 
+. . . 
+
+> move (C, 1) mm_score: -0.8
+move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: -0.8
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: 0
+number of nodes searched: 230
+O X . 
+X O . 
+. . X 
+
+> move (C, 1) mm_score: 0
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: 0
+number of nodes searched: 61
+O X O 
+X O . 
+. . X 
+
+> move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: -0.8
+number of nodes searched: 14
+O X O 
+X O . 
+X . X 
+
+> move (C, 2) mm_score: -0.8
+move (B, 3) mm_score: 0
+number of nodes searched: 5
+O X O 
+X O . 
+X O X 
+
+> move (C, 2) mm_score: 0
+number of nodes searched: 2
+O X O 
+X O X 
+X O X 
+
+It's a draw

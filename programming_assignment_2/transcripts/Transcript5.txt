@@ -1,0 +1,64 @@
+Welcome to Tic-Tac-Toe
+. . . 
+. . . 
+. . . 
+
+> . . . 
+. X . 
+. . . 
+
+> . O . 
+. X . 
+. . . 
+
+> move (A, 1) mm_score: 0.5
+move (C, 1) mm_score: 0.5
+move (A, 2) mm_score: 0.5
+move (C, 2) mm_score: 0.5
+move (A, 3) mm_score: 0.5
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: 0.5
+number of nodes searched: 7064
+X O . 
+. X . 
+. . . 
+
+> move (C, 1) mm_score: -0.8
+move (A, 2) mm_score: -0.8
+move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: -0.8
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: -0.6
+number of nodes searched: 1061
+X O . 
+. X . 
+. . O 
+
+> move (C, 1) mm_score: 0
+move (A, 2) mm_score: 0.7
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: 0.7
+move (B, 3) mm_score: 0
+number of nodes searched: 238
+X O . 
+X X . 
+. . O 
+
+> move (C, 1) mm_score: -0.8
+move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: -0.8
+move (B, 3) mm_score: -0.8
+number of nodes searched: 37
+X O O 
+X X . 
+. . O 
+
+> move (C, 2) mm_score: 0.9
+move (A, 3) mm_score: 0.9
+move (B, 3) mm_score: -0.8
+number of nodes searched: 7
+X O O 
+X X X 
+. . O 
+
+Player X wins

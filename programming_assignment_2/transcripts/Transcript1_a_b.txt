@@ -1,0 +1,101 @@
+Welcome to Tic-Tac-Toe
+. . . 
+. . . 
+. . . 
+
+> Pruning is off
+. . . 
+. . . 
+. . . 
+
+> move (A, 1) mm_score: 0
+move (B, 1) mm_score: 0
+move (C, 1) mm_score: 0
+move (A, 2) mm_score: 0
+move (B, 2) mm_score: 0
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: 0
+number of nodes searched: 549946
+X . . 
+. . . 
+. . . 
+
+> move (B, 1) mm_score: -0.3999999999999999
+move (C, 1) mm_score: -0.3999999999999999
+move (A, 2) mm_score: -0.3999999999999999
+move (B, 2) mm_score: 0
+move (C, 2) mm_score: -0.3999999999999999
+move (A, 3) mm_score: -0.3999999999999999
+move (B, 3) mm_score: -0.3999999999999999
+move (C, 3) mm_score: -0.3999999999999999
+number of nodes searched: 59705
+X . . 
+. O . 
+. . . 
+
+> move (B, 1) mm_score: 0
+move (C, 1) mm_score: 0
+move (A, 2) mm_score: 0
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: 0
+number of nodes searched: 7332
+X X . 
+. O . 
+. . . 
+
+> move (C, 1) mm_score: 0
+move (A, 2) mm_score: -0.8
+move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: -0.8
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: -0.8
+number of nodes searched: 935
+X X O 
+. O . 
+. . . 
+
+> move (A, 2) mm_score: -0.8
+move (C, 2) mm_score: -0.8
+move (A, 3) mm_score: 0
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: -0.8
+number of nodes searched: 198
+X X O 
+. O . 
+X . . 
+
+> move (A, 2) mm_score: 0
+move (C, 2) mm_score: -0.8
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: -0.8
+number of nodes searched: 47
+X X O 
+O O . 
+X . . 
+
+> move (C, 2) mm_score: 0
+move (B, 3) mm_score: -0.8
+move (C, 3) mm_score: -0.8
+number of nodes searched: 14
+X X O 
+O O X 
+X . . 
+
+> move (B, 3) mm_score: 0
+move (C, 3) mm_score: 0
+number of nodes searched: 5
+X X O 
+O O X 
+X O . 
+
+> move (C, 3) mm_score: 0
+number of nodes searched: 2
+X X O 
+O O X 
+X O X 
+
+It's a draw
