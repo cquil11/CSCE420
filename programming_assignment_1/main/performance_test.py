@@ -1,20 +1,37 @@
 import subprocess
-import shlex
-from subprocess import Popen, PIPE
-from threading import Timer
+import sys
 
-def run(cmd, timeout_sec):
-    proc = Popen(shlex.split(cmd), stdout=PIPE, stderr=PIPE)
-    timer = Timer(timeout_sec, proc.kill)
+python_executable = sys.executable
+
+def run(*args, timeout_sec=None):
+    """
+        Example:
+            stdout, stderr, exit_code = Console.run("echo", "hello", timeout_sec=30)
+    """
+    from subprocess import Popen, PIPE
+    from threading import Timer
+    
+    proc = Popen(list(args), stdout=PIPE, stderr=PIPE)
+    timer = None
+    if timeout_sec:
+        timer = Timer(timeout_sec, proc.kill)
     try:
-        timer.start()
+        if timer:
+            timer.start()
         stdout, stderr = proc.communicate()
-        if stderr:
-            print(f'''Error: {stderr.decode('utf-8')[0:-1]}''')
-        return stdout.decode('utf-8')[0:-1]
+        stdout = stdout.decode('utf-8')[0:-1]
+        stderr = stderr.decode('utf-8')[0:-1]
+        return stdout, stderr, proc.returncode
     finally:
-        timer.cancel()
-    return None
+        if timer:
+            timer.cancel()
+    return None, None, None
+
+def indent(string, by="    ", ignore_first=False):
+    indent_string = (" "*by) if isinstance(by, int) else by
+    string = string if isinstance(string, str) else f"{string}"
+    start = indent_string if not ignore_first else ""
+    return start + string.replace("\n", "\n"+indent_string)
 
 # 
 # auto install ez_yaml
@@ -22,8 +39,12 @@ def run(cmd, timeout_sec):
 try:
     import ez_yaml
 except Exception as error:
-    print(subprocess.check_output(["python3", "-m", "pip", "install", "ez_yaml"]).decode('utf-8')[0:-1])
-    import ez_yaml
+    stdout, stderr, exit_code = run(python_executable, "-m", "pip", "install", "ez_yaml")
+    if exit_code == 0:
+        import ez_yaml
+    else:
+        print("please install ez_yaml. E.g.\n    pip install ez_yaml")
+        exit(1)
 
 # 
 # parse args
@@ -39,6 +60,7 @@ base_tests = [
     [ "PositionSearchProblem", "big_maze"          , ],
     [ "PositionSearchProblem", "huge_maze"         , ],
     [ "FoodSearchProblem"    , "food_search_1"     , ],
+    [ "FoodSearchProblem"    , "box_search"        , ],
     [ "FoodSearchProblem"    , "food_search_2"     , ],
     [ "FoodSearchProblem"    , "food_search_3"     , ],
 ]
@@ -48,9 +70,9 @@ for base_test in base_tests:
         tests.append([ heuristic_name, *base_test ])
 
 def run_and_extract_data(heuristic, problem, layout):
-    output = run(" ".join(["python3", "pacman.py", "--timeout", "1", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", ]), timeout_sec=30)
+    output, error_output, exit_code = run(python_executable, "pacman.py", "--quiet_text_graphics", "-l", layout, "-p", "SearchAgent", "-a", f"prob={problem},heuristic={heuristic}", timeout_sec=30)
     # seconds
-    if not output:
+    if output == None:
         return [ None, None, None, "timed out" ]
     
     # output example:
@@ -68,9 +90,8 @@ def run_and_extract_data(heuristic, problem, layout):
     solution_length = None
     seconds = None
     try:
-        lines = output.split("\n")
-        lines = [ line for line in lines if not line.startswith("[SearchAgent]") ]
-        output = "\n".join(lines)
+        relevent_lines = output.split("\n")[-7:]
+        output = "\n".join(relevent_lines)
         output = output.replace(f"Path found with total cost of","Path found with total cost of:")
         output = output.replace(f"Warning: this does not look like a regular search maze\n","")
         data  = ez_yaml.to_object(
@@ -81,21 +102,38 @@ def run_and_extract_data(heuristic, problem, layout):
         solution_length, time = data['Path found with total cost of'].split(" in ")
         seconds, *_           = time.split(" ")
     except Exception as error:
-        import json
-        print(f'''error = {error}''')
-        print("")
-        print(f'''pacman_score = {pacman_score}''')
-        print(f'''nodes_expanded = {nodes_expanded}''')
-        print(f'''solution_length = {solution_length}''')
-        print(f'''seconds = {seconds}''')
-        print(f'''data = {dict(data)}''')
-        print("")
-        print(f'''output = {json.dumps(output)}''')
-        return [ None, None, None , None ]
+        import os
+        error_path = f"error/{heuristic}_{layout}.log"
+        os.makedirs(os.path.dirname(error_path), exist_ok=True)
+        with open(error_path, 'w') as the_file:
+            if error_output:
+                the_file.write(error_output)
+            else:
+                print("Tried to parse the output",                    file=the_file)
+                print("I expected some output that includes:",        file=the_file)
+                print("    Path found with total cost of",            file=the_file)
+                print("    Pacman emerges victorious! Score: ",       file=the_file)
+                print("    Search nodes expanded: ",                  file=the_file)
+                print("    Path found with total cost of: ",          file=the_file)
+                print("",                                             file=the_file)
+                print("however instead I got this output:",           file=the_file)
+                print(indent(output),                                 file=the_file)
+                print("",                                             file=the_file)
+                print("this is the error I got when parsing that:",   file=the_file)
+                print(indent(f"{error}"),                             file=the_file)
+                print("",                                             file=the_file)
+                print("this is partially parsed data:",               file=the_file)
+                print(f'''    pacman_score = {pacman_score}''',       file=the_file)
+                print(f'''    nodes_expanded = {nodes_expanded}''',   file=the_file)
+                print(f'''    solution_length = {solution_length}''', file=the_file)
+                print(f'''    seconds = {seconds}''',                 file=the_file)
+                print(f'''    data = {data}''',                       file=the_file)
+            
+        return [ None, None, None, error_path,  ]
     
     return pacman_score, nodes_expanded, int(solution_length), seconds
 
-longest_name = max(*[ len(each) for each in  heuristics_to_test])+2
+longest_name = max([ len(each) for each in  heuristics_to_test])+2
 
 print()
 print(f"""{f"HEURISTIC".rjust(longest_name)},              LAYOUT,   SECONDS, EXPANDED_NODE_COUNT, PACMAN_SCORE, SOLUTION_LENGTH""")

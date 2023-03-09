@@ -101,8 +101,7 @@ class SearchAgent(Agent):
                     heuristic + " is not a function in search_agents.py or search.py.",
                 )
             if heur:
-                print("[SearchAgent] using function %s and heuristic %s" %
-                      (fn, heuristic))
+                print("[SearchAgent] using function %s and heuristic %s" % (fn, heuristic))
                 # Note: this bit of Python trickery combines the search algorithm and the heuristic
                 self.search_function = lambda x: func(x, heuristic=heur)
             # allow the function's default heuristic to be used
@@ -196,8 +195,7 @@ class PositionSearchProblem(search.SearchProblem):
             print("Warning: this does not look like a regular search maze")
 
         # For display purposes
-        # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS
-        self._visited, self._visitedlist, self._expanded = {}, [], 0
+        self._visited, self._visitedlist, self._expanded = {}, [], 0  # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS
 
     def get_start_state(self):
         return self.start_state
@@ -211,8 +209,7 @@ class PositionSearchProblem(search.SearchProblem):
             import __main__
 
             if "_display" in dir(__main__):
-                # @UndefinedVariable
-                if "draw_expanded_cells" in dir(__main__._display):
+                if "draw_expanded_cells" in dir(__main__._display):  # @UndefinedVariable
                     __main__._display.draw_expanded_cells(
                         self._visitedlist
                     )  # @UndefinedVariable
@@ -285,7 +282,7 @@ class StayEastSearchAgent(SearchAgent):
 
     def __init__(self):
         self.search_function = search.uniform_cost_search
-        def cost_fn(pos): return 0.5 ** pos[0]
+        cost_fn = lambda pos: 0.5 ** pos[0]
         self.search_type = lambda state: PositionSearchProblem(
             state, cost_fn, (1, 1), None, False
         )
@@ -301,7 +298,7 @@ class StayWestSearchAgent(SearchAgent):
 
     def __init__(self):
         self.search_function = search.uniform_cost_search
-        def cost_fn(pos): return 2 ** pos[0]
+        cost_fn = lambda pos: 2 ** pos[0]
         self.search_type = lambda state: PositionSearchProblem(state, cost_fn)
 
 
@@ -348,8 +345,7 @@ class CornersProblem(search.SearchProblem):
         for corner in self.corners:
             if not starting_game_state.has_food(*corner):
                 print("Warning: no food in corner " + str(corner))
-        # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS; Number of search nodes expanded
-        self._expanded = 0
+        self._expanded = 0  # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS; Number of search nodes expanded
         # Please add any code here which you would like to use
         # in initializing the problem
         # for example:
@@ -372,6 +368,7 @@ class CornersProblem(search.SearchProblem):
         util.raise_not_defined()
 
     def get_successors(self, state):
+        
         "*** YOUR CODE HERE ***"
         # What should this return?
         #     A list of Transitions, with a structure like this:
@@ -390,10 +387,10 @@ class CornersProblem(search.SearchProblem):
         #         ),
         #         # etc
         #     ]
-        #
+        # 
         # Note:
         #     only add a transition if the action is legal
-        #
+        # 
         # Example:
         #     successors = []
         #     for action in [
@@ -409,7 +406,7 @@ class CornersProblem(search.SearchProblem):
         #             next_state = (nextx, nexty)
         #             cost = self.cost_fn(next_state)
         #             successors.append(tools.Transition(next_state, action, cost))
-
+        
         self._expanded += 1  # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS
         return successors
 
@@ -443,8 +440,7 @@ def corners_heuristic(state, problem):
     admissible (as well as consistent).
     """
     corners = problem.corners  # These are the corner coordinates
-    # These are the walls of the maze, as a Grid (game.py)
-    walls = problem.walls
+    walls = problem.walls  # These are the walls of the maze, as a Grid (game.py)
 
     "*** YOUR CODE HERE ***"
     return 0  # Default to trivial solution
@@ -454,8 +450,7 @@ class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your food_heuristic"
 
     def __init__(self):
-        self.search_function = lambda prob: search.a_star_search(
-            prob, corners_heuristic)
+        self.search_function = lambda prob: search.a_star_search(prob, corners_heuristic)
         self.search_type = CornersProblem
 
 
@@ -481,9 +476,6 @@ class FoodSearchProblem(object):
 
     def get_start_state(self):
         return self.start
-
-    def get_whole_start_state(self):
-        return self.starting_game_state
 
     def is_goal_state(self, state):
         return state[1].count() == 0
@@ -532,123 +524,41 @@ class AStarFoodSearchAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your food_heuristic"
 
     def __init__(self):
-        self.search_function = lambda prob: search.a_star_search(
-            prob, food_heuristic)
+        self.search_function = lambda prob: search.a_star_search(prob, food_heuristic)
         self.search_type = FoodSearchProblem
 
+
 def food_heuristic(state, problem):
-    """Heuristic using minimum manhattan distance from Pacman's current 
-        position to all of the food positions. Multiply the heuristic by 20 for
-        faster results, but not necessarily optimal."""
+    """
+    Your heuristic for the FoodSearchProblem goes here.
+
+    This heuristic must be consistent to ensure correctness.  First, try to come
+    up with an admissible heuristic; almost all admissible heuristics will be
+    consistent as well.
+
+    If using A* ever finds a solution that is worse uniform cost search finds,
+    your heuristic is *not* consistent, and probably not admissible!  On the
+    other hand, inadmissible or inconsistent heuristics may find optimal
+    solutions, so be careful.
+
+    The state is a tuple ( pacman_position, food_grid ) where food_grid is a Grid
+    (see game.py) of either True or False. You can call food_grid.as_list() to get
+    a list of food coordinates instead.
+
+    If you want access to info like walls, capsules, etc., you can query the
+    problem.  For example, problem.walls gives you a Grid of where the walls
+    are.
+
+    If you want to *store* information to be reused in other calls to the
+    heuristic, there is a dictionary called problem.heuristic_info that you can
+    use. For example, if you only want to count the walls once and store that
+    value, try: problem.heuristic_info['wall_count'] = problem.walls.count()
+    Subsequent calls to this heuristic can access
+    problem.heuristic_info['wall_count']
+    """
     position, food_grid = state
-
-    # all_foods is a list of co-ordinates of all the foods on the current
-    # state of the grid
-    all_foods = food_grid.as_list()
-    h = 0
-
-    # While all the foods have not been eaten (that is, removed from the list
-    # containing all the foods), calculate the minimum Manhattan distance to
-    # each node (that is, the closest node, Manhattan-distance-wise). Remove that
-    # food from all_foods (essentially marking it "eaten") and change the current
-    # position to that position. Finally, add the distance to the heuristic value.
-    # Do this until there are no foods to eat.
-    while all_foods:
-        min_distance = 10000000
-        food_eaten = position
-        for food in all_foods:
-            manhattan_dist = util.manhattan_distance(
-                position, food)
-            if manhattan_dist < min_distance:
-                min_distance = manhattan_dist
-                food_eaten = food
-        all_foods.remove(food_eaten)
-        position = food_eaten
-        h += min_distance
-
-    return h
-
-def food_heuristic_factor(state, problem):
-    """Heuristic using minimum manhattan distance from Pacman's current 
-        position to all of the food positions. Multiply the heuristic by 20 for
-        faster results, but not necessarily optimal."""
-    position, food_grid = state
-
-    # all_foods is a list of co-ordinates of all the foods on the current
-    # state of the grid
-    all_foods = food_grid.as_list()
-    h = 0
-
-    # While all the foods have not been eaten (that is, removed from the list
-    # containing all the foods), calculate the minimum Manhattan distance to
-    # each node (that is, the closest node, Manhattan-distance-wise). Remove that
-    # food from all_foods (essentially marking it "eaten") and change the current
-    # position to that position. Finally, add the distance to the heuristic value.
-    # Do this until there are no foods to eat.
-    while all_foods:
-        min_distance = 10000000
-        food_eaten = position
-        for food in all_foods:
-            manhattan_dist = util.manhattan_distance(
-                position, food)
-            if manhattan_dist < min_distance:
-                min_distance = manhattan_dist
-                food_eaten = food
-        all_foods.remove(food_eaten)
-        position = food_eaten
-        h += min_distance
-
-    # NOTE: This is not necessarily optimal nor admissible. Multiplying the heuristic
-    # by a factor of 20 decreases the time significantly.
-    return h * 20
-
-
-def food_heuristic_2(state, problem):
-    """This is a heuristic that I was messing around with that I believe is admissible,
-    but is very slow."""
-    position, food_grid = state
-    all_foods = food_grid.as_list()
-
-    min_distance = 10000000
-    max_distance = -10000000
-    farthest_food = position
-    nearest_food = position
-    for food in all_foods:
-        manhattan_dist = util.manhattan_distance(position, food)
-        if manhattan_dist < min_distance:
-            min_distance = manhattan_dist
-            nearest_food = food
-    for food in all_foods:
-        far_near_dist = util.manhattan_distance(nearest_food, food)
-        if far_near_dist > max_distance:
-            max_distance = far_near_dist
-            farthest_food = food
-
-    return util.manhattan_distance(position, nearest_food) + \
-        util.manhattan_distance(nearest_food, farthest_food)
-
-
-def food_heuristic_3(state, problem):
-    """A heuristic that uses maze_distance function instead of the Manhattan heuristic
-    for more accurate results. Although, I believe this is still suboptimal."""
-    position, food_grid = state
-    all_foods = food_grid.as_list()
-    h = 0
-
-    while all_foods:
-        min_distance = 10000000
-        food_eaten = position
-        for food in all_foods:
-            real_dist = maze_distance(
-                position, food, problem.get_whole_start_state())
-            if real_dist < min_distance:
-                min_distance = real_dist
-                food_eaten = food
-        all_foods.remove(food_eaten)
-        position = food_eaten
-        h += min_distance
-
-    return h
+    "*** YOUR CODE HERE ***"
+    return 0
 
 
 class ClosestDotSearchAgent(SearchAgent):
@@ -713,8 +623,7 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         self.walls = game_state.get_walls()
         self.start_state = game_state.get_pacman_position()
         self.cost_fn = lambda x: 1
-        # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS
-        self._visited, self._visitedlist, self._expanded = {}, [], 0
+        self._visited, self._visitedlist, self._expanded = {}, [], 0  # NOTE: STUFF WILL BREAK IF YOU CHANGE THIS
 
     def is_goal_state(self, state):
         """
