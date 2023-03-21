@@ -271,6 +271,7 @@ def main():
             state.show()
         elif CHOOSE == user_move[0].upper() and len(user_move) == 2:
             new_state = minimax_search(state, user_move[1])
+            # Important. Changes the main game state to the new one chosen by the computer.
             state = copy.deepcopy(new_state[0])
             print("number of nodes searched: " + str(nodes_searched))
             nodes_searched = 0

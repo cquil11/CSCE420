@@ -3,60 +3,73 @@ Welcome to Tic-Tac-Toe
 . . . 
 . . . 
 
-> . . . 
+> pruning on
+Pruning is on
+> move X B 2 
+. . . 
 . X . 
 . . . 
 
-> . O . 
+> move O A 2
+. O . 
 . X . 
 . . . 
 
-> move (A, 1) mm_score: 0.5
+> choose X
+move (A, 1) mm_score: 0.5
 move (C, 1) mm_score: 0.5
 move (A, 2) mm_score: 0.5
 move (C, 2) mm_score: 0.5
 move (A, 3) mm_score: 0.5
-move (B, 3) mm_score: 0
+move (B, 3) mm_score: 0.5
 move (C, 3) mm_score: 0.5
-number of nodes searched: 7064
+number of nodes searched: 716
 X O . 
 . X . 
 . . . 
 
-> move (C, 1) mm_score: -0.8
+> choose O
+move (C, 1) mm_score: -0.8
 move (A, 2) mm_score: -0.8
 move (C, 2) mm_score: -0.8
 move (A, 3) mm_score: -0.8
 move (B, 3) mm_score: -0.8
 move (C, 3) mm_score: -0.6
-number of nodes searched: 1061
+number of nodes searched: 410
 X O . 
 . X . 
 . . O 
 
-> move (C, 1) mm_score: 0
+> choose X
+move (C, 1) mm_score: 0
 move (A, 2) mm_score: 0.7
-move (C, 2) mm_score: 0
+move (C, 2) mm_score: 0.7
 move (A, 3) mm_score: 0.7
 move (B, 3) mm_score: 0
-number of nodes searched: 238
+number of nodes searched: 93
 X O . 
 X X . 
 . . O 
 
-> move (C, 1) mm_score: -0.8
+> choose O
+move (C, 1) mm_score: -0.8
 move (C, 2) mm_score: -0.8
 move (A, 3) mm_score: -0.8
 move (B, 3) mm_score: -0.8
-number of nodes searched: 37
+number of nodes searched: 25
 X O O 
 X X . 
 . . O 
 
-> move (C, 2) mm_score: 0.9
+> choose X
+move (C, 2) mm_score: 0.9
 move (A, 3) mm_score: 0.9
 move (B, 3) mm_score: -0.8
-number of nodes searched: 7
+number of nodes searched: 5
+X O O 
+X X X 
+. . O 
+
 X O O 
 X X X 
 . . O 

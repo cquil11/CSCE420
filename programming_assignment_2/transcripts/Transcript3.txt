@@ -3,82 +3,97 @@ Welcome to Tic-Tac-Toe
 . . . 
 . . . 
 
-> X . . 
+> pruning on 
+Pruning is on
+> move X A 1
+X . . 
 . . . 
 . . . 
 
-> move (B, 1) mm_score: -0.3999999999999999
+> choose O
+move (B, 1) mm_score: -0.3999999999999999
 move (C, 1) mm_score: -0.3999999999999999
 move (A, 2) mm_score: -0.3999999999999999
 move (B, 2) mm_score: 0
-move (C, 2) mm_score: -0.3999999999999999
-move (A, 3) mm_score: -0.3999999999999999
-move (B, 3) mm_score: -0.3999999999999999
-move (C, 3) mm_score: -0.3999999999999999
-number of nodes searched: 59705
+move (C, 2) mm_score: 0
+move (A, 3) mm_score: -0.19999999999999996
+move (B, 3) mm_score: 0
+move (C, 3) mm_score: 0
+number of nodes searched: 2788
 X . . 
 . O . 
 . . . 
 
-> move (B, 1) mm_score: 0
+> choose X
+move (B, 1) mm_score: 0
 move (C, 1) mm_score: 0
 move (A, 2) mm_score: 0
 move (C, 2) mm_score: 0
 move (A, 3) mm_score: 0
 move (B, 3) mm_score: 0
 move (C, 3) mm_score: 0
-number of nodes searched: 7332
+number of nodes searched: 871
 X X . 
 . O . 
 . . . 
 
-> move (C, 1) mm_score: 0
+> choose O
+move (C, 1) mm_score: 0
 move (A, 2) mm_score: -0.8
 move (C, 2) mm_score: -0.8
 move (A, 3) mm_score: -0.8
 move (B, 3) mm_score: -0.8
 move (C, 3) mm_score: -0.8
-number of nodes searched: 935
+number of nodes searched: 75
 X X O 
 . O . 
 . . . 
 
-> move (A, 2) mm_score: -0.8
+> choose X
+move (A, 2) mm_score: -0.8
 move (C, 2) mm_score: -0.8
 move (A, 3) mm_score: 0
-move (B, 3) mm_score: -0.8
-move (C, 3) mm_score: -0.8
-number of nodes searched: 198
+move (B, 3) mm_score: -0.6
+move (C, 3) mm_score: -0.6
+number of nodes searched: 64
 X X O 
 . O . 
 X . . 
 
-> move (A, 2) mm_score: 0
+> choose O
+move (A, 2) mm_score: 0
 move (C, 2) mm_score: -0.8
 move (B, 3) mm_score: -0.8
 move (C, 3) mm_score: -0.8
-number of nodes searched: 47
+number of nodes searched: 17
 X X O 
 O O . 
 X . . 
 
-> move (C, 2) mm_score: 0
+> choose X
+move (C, 2) mm_score: 0
 move (B, 3) mm_score: -0.8
 move (C, 3) mm_score: -0.8
-number of nodes searched: 14
+number of nodes searched: 10
 X X O 
 O O X 
 X . . 
 
-> move (B, 3) mm_score: 0
+> choose O
+move (B, 3) mm_score: 0
 move (C, 3) mm_score: 0
 number of nodes searched: 5
 X X O 
 O O X 
 X O . 
 
-> move (C, 3) mm_score: 0
+> choose X
+move (C, 3) mm_score: 0
 number of nodes searched: 2
+X X O 
+O O X 
+X O X 
+
 X X O 
 O O X 
 X O X 
