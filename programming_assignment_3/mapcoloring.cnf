@@ -1,0 +1,113 @@
+# Each state is 1 of 3 colors
+
+WAR WAG WAB
+NTR NTG NTB
+QR QG QB
+SAR SAG SAB
+VR VG VB
+TR TG TB
+NSWR NSWG NSWB
+
+# Each state at most 1 color WAR => ~WAG ^ ~WAB
+
+-WAR -WAG
+-WAR -WAB
+-WAG -WAB
+-WAG -WAR
+
+-NTR -NTG
+-NTR -NTB
+-NTG -NTB
+-NTG -NTR
+
+-QR -QG
+-QR -QB
+-QG -QB
+-QG -QR
+
+-SAR -SAG
+-SAR -SAB
+-SAG -SAB
+-SAG -SAR
+
+-VR -VG
+-VR -VB
+-VG -VB
+-VG -VR
+
+-TR -TG
+-TR -TB
+-TG -TB
+-TG -TR
+
+-NSWR -NSWG
+-NSWR -NSWB
+-NSWG -NSWB
+-NSWG -NSWR
+
+# Adjacent states must be different colors WAR => -WAG ^ -SAR
+
+-WAR -NTR
+-WAR -SAR
+-WAG -NTG
+-WAG -SAG
+-WAB -NTB
+-WAB -SAB
+
+-NTR -WAR
+-NTR -SAR
+-NTR -QR
+-NTG -WAG
+-NTG -SAG
+-NTG -QG
+-NTB -WAB
+-NTB -SAB
+-NTB -QB
+
+-SAR -WAR
+-SAR -NTR
+-SAR -QR
+-SAR -NSWR
+-SAR -VR
+-SAG -WAG
+-SAG -NTG
+-SAG -QG
+-SAG -NSWG
+-SAG -VG
+-SAB -WAB
+-SAB -NTB
+-SAB -QB
+-SAB -NSWB
+-SAB -VB
+
+-QR -NTR
+-QR -SAR
+-QR -NSWR
+-QG -NTG
+-QG -SAG
+-QG -NSWG
+-QB -NTB
+-QB -SAB
+-QB -NSWB
+
+-NSWR -QR
+-NSWR -SAR
+-NSWR -VR
+-NSWG -QG
+-NSWG -SAG
+-NSWG -VG
+-NSWB -QB
+-NSWB -SAB
+-NSWB -VB
+
+-VR -NSWR
+-VR -SAR
+-VG -NSWG
+-VG -SAG
+-VB -NSWB
+-VB -SAB
+
+
+
+
+
