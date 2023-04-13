@@ -23,14 +23,24 @@ class Model:
         # Read the KB from the *.cnf file specified
         with open(filename, "r") as cnf:
             for line in cnf.readlines():
-                if "#" in line or line == '\n':
+                if line == '\n':
                     continue
                 line_props = line.split(" ")
                 # Removes newline character
                 line_props[-1] = line_props[-1].strip()
-                self.clauses.append(line_props)
-                # print(line_props)
+
+                line_props_temp = []
                 for prop in line_props:
+                    if prop == " " or prop == "":
+                        continue
+                    elif "#" in prop:
+                        break
+                    else:
+                        line_props_temp.append(prop.replace(" ", ""))
+
+                if len(line_props_temp) > 0:
+                    self.clauses.append(line_props_temp)
+                for prop in line_props_temp:
                     # Redundant check but whatever
                     if prop.strip("-") not in self.props.keys():
                         self.props[prop.strip("-")] = 0

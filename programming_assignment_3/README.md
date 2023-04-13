@@ -2,7 +2,7 @@
 
 ## Important Notes
 
-The parsing of the `*.cnf` files can be a bit finnicky. There is not support for commenting lines of code "inline". Please avoid writing any functional instruction on the same line you have a comment in any `*.cnf` files. Further, there seem to be mistakes that occur when there is a space character at the end of lines in `*.cnf` files. If you notice something buggy with the parsing of clauses/propositions, make sure there are no erroneous spaces at the end of lines in any `*.cnf` files.
+Please see my comments in results/results.txt (where you will also find all of the collective data). Additionally, I did not see anywhere in the directions where it specified to upload the results of running dpll.py on an unsatisfiable instance of Map Coloring, so I didn't add that one.
 
 ## Execution Instructions
 Simply run
