@@ -1,3 +1,8 @@
+Notes: Since it is technically possible for the output with/without UCH to be different, a column was added to reflect this possibility (even though we do not
+see this behavior in this particular assignment). Furthermore, to avoid alternate models being generated for Sammy's Sport Shop, we add the negative consequences
+that correspond to each fact. For instance, since O1Y, it is fair to assume that -O1W since one ball is observed from each box. Alternatively, we could
+just add more rules to our KB, but Dr. Ioerger said this was better for this particular context.
+
 +---------------------------------------------------+-------------------------------------------------------------------------------------------+------------+
 |               Command Line Argument               |                                        Model Output                                       | DPLL Calls |
 |                                                   +-----------------------------------------------------+-------------------------------------+            |
@@ -7,9 +12,11 @@
 +---------------------------------------------------+-----------------------------------------------------+-------------------------------------+------+-----+
 |         python3 dpll.py mapcoloring.cnf QG        |              WAG NTR QG SAB VG TR NSWR              |      WAG NTR QG SAB VG TR NSWR      |  89  |  28 |
 +---------------------------------------------------+-----------------------------------------------------+-------------------------------------+------+-----+
-| python3 dpll.py sammy.cnf O1Y O2W O3Y L1W L2Y L3B |   O1W C1B O1Y O2W C2W O3Y C3Y L1Y L1W L2Y L2B L3B   | C1B O1Y O2W C2W O3Y C3Y L1W L2Y L3B |  59  |  15 |
+| python3 dpll.py sammy.cnf O1Y O2W O3Y L1W L2Y L3B |         C1B O1Y O2W C2W O3Y C3Y L1W L2Y L3B         | C1B O1Y O2W C2W O3Y C3Y L1W L2Y L3B |  30  |  10 |
+|    -O1W -L1Y -L1B -L2W -L2B -L3W -L3Y -O3W -O2Y   |                                                     |                                     |      |     |
 +---------------------------------------------------+-----------------------------------------------------+-------------------------------------+------+-----+
-| python3 dpll.py sammy.cnf O1W L2B L3B O2Y O3W L1W | O1W C1B O1Y O2Y C2Y O3W C3W L1Y L1W L2W L2B L3Y L3B | O1W C1B O2Y C2Y O3W C3W L1W L2B L3B |  72  |  15 |
+| python3 dpll.py sammy.cnf O1W L2B L3B O2Y O3W L1W |         O1W C1B O2Y C2Y O3W C3W L1W L2B L3B         | O1W C1B O2Y C2Y O3W C3W L1W L2B L3B |  34  |  10 |
+|    -O1Y -O2W -O3Y -L2W -L2Y -L3W -L3Y -L1Y -L1B   |                                                     |                                     |      |     |
 +---------------------------------------------------+-----------------------------------------------------+-------------------------------------+------+-----+
 |            python3 dpll.py 3-queens.cnf           |                    Unsatisfiable                    |            Unsatisfiable            |  43  |  23 |
 +---------------------------------------------------+-----------------------------------------------------+-------------------------------------+------+-----+
