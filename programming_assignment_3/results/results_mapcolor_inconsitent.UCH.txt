@@ -1,0 +1,38 @@
+model: 
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': 0, 'NTB': 0, 'QR': 0, 'QG': 1, 'QB': 0, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': 0, 'VG': 0, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying QR=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': 0, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': 0, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': 0, 'VG': 0, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying QB=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': 0, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': 0, 'VG': 0, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying VR=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': 0, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': -1, 'VG': 0, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying VG=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': 0, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying NTG=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': 0, 'SAB': 0, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying SAG=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': -1, 'SAB': 0, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying SAB=F
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 0, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying SAR=T
+{'WAR': 0, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying WAR=F
+{'WAR': -1, 'WAG': 0, 'WAB': 0, 'NTR': 0, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying NTR=F
+{'WAR': -1, 'WAG': 0, 'WAB': 0, 'NTR': -1, 'NTG': -1, 'NTB': 0, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying NTB=T
+{'WAR': -1, 'WAG': 0, 'WAB': 0, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying WAB=F
+{'WAR': -1, 'WAG': 0, 'WAB': -1, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying WAG=T
+{'WAR': -1, 'WAG': 1, 'WAB': -1, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': 0, 'NSWG': 0, 'NSWB': 0}
+trying NSWR=F
+{'WAR': -1, 'WAG': 1, 'WAB': -1, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': -1, 'NSWG': 0, 'NSWB': 0}
+trying NSWG=F
+{'WAR': -1, 'WAG': 1, 'WAB': -1, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': -1, 'NSWG': -1, 'NSWB': 0}
+trying NSWB=T
+{'WAR': -1, 'WAG': 1, 'WAB': -1, 'NTR': -1, 'NTG': -1, 'NTB': 1, 'QR': -1, 'QG': 1, 'QB': -1, 'SAR': 1, 'SAG': -1, 'SAB': -1, 'VR': -1, 'VG': -1, 'VB': 1, 'TR': 0, 'TG': 0, 'TB': 0, 'NSWR': -1, 'NSWG': -1, 'NSWB': 1}
+backtracking
+Unsatisfiable
+total DPLL calls: 17
+UCH=True

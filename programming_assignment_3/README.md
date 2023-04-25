@@ -2,7 +2,7 @@
 
 ## Important Notes
 
-Please see my comments in results/results.txt (where you will also find all of the collective data). Additionally, I did not see anywhere in the directions where it specified to upload the results of running dpll.py on an unsatisfiable instance of Map Coloring, so I didn't add that one.
+Please see my comments in results/results.txt (where you will also find all of the collective data).
 
 ## Execution Instructions
 Simply run
